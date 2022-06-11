@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <script>
+
+    </script>
+        <style>
+          .centering_parent {
+    padding: 20px;              /* 余白指定 */
+    text-align:  center;        /* 中央寄せ */
+    background-color:  #ddd;    /* 背景色指定 */
+    height: 100px;              /* 高さ指定 */
+}
+ 
+.centering_item {
+    background-color: #FFEB3B;  /* 背景色指定 */
+}
+br {
+display: block;
+content: "";
+margin: 10px 0;
+}
+    </style>
+  </head>
+  <body>
+    <h1> </h1><br>
+      <div class="centering_parent">
+    <span class="centering_item">
+    <h1><?
+    var ss_id = '1YPWfD2YIzfNzJ4Om8ZLewmeel_LkHZBhFuciEcxOXZQ';
+        var sh_name = 'シート1'; //スプレッドシートのシート名を指定
+        var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
+    var myRange = sh.getRange("A2");
+  if(myRange.isBlank()){
+     var now = new Date();
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+var date = now.getDate();
+
+var day_arr = ['生物・現代文', '地理', '英語', '漢文', '化学', '古文', '数学']
+var day = day_arr[now.getDay()];
+
+var time = year + '年' + month + '月' + date + '日' + '（' + day + '）';
+          output.append("課題終了！今日の学習教科は：" + day);
+  }else{
+        var day = sh.getRange("B2");
+        var dayvalue = day.getDisplayValue();
+        var name = sh.getRange("A2");
+        var namevalue = name.getValue();
+          output.append(namevalue +"　提出日："+ dayvalue);
+          output.append('<br><button type="button" id="rightButton" class="c-button" onclick="deletebutton()">できた</button>');
+  }
+      ?></h1>
+      </span>
+</div>
+      <script>
+      function result(url){
+            window.open(url, '_top')
+     }
+      function doSuccess(data){
+         google.script.run
+          .withSuccessHandler(result).getScriptUrl();
+     }
+     function deletebutton(){
+       google.script.run.withSuccessHandler(doSuccess).deletefunc();
+     }
+    </script>
+  </body>
+</html>
+  </body>
+</html>
