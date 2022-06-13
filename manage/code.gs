@@ -24,12 +24,13 @@ function doSubmitAjax(req) {
     //この順番にスプレッドシートに格納される
     const data = [[
       param.user_id, 
+      param.userName, 
       param.calendar_date_from,
       param.calendar_time_from,
       new Date()
     ]];
     //SPREAD_SHEET_IDは連携するスプレッドシートのID、SHEET_NAMEはシート名をそれぞれ置き換えてください。
-    const app = SpreadsheetApp.openById('1YPWfD2YIzfNzJ4Om8ZLewmeel_LkHZBhFuciEcxOXZQ');
+    const app = SpreadsheetApp.openById('1jqkhIYkAq18_uqZKkZw0DcuislNF3TZHmJz90BV7zZ0');
     const sheet = app.getSheetByName('シート1');
     const insertRow = sheet.getDataRange().getLastRow() + 1;  //挿入行
     const insertCol = 1;  //挿入列
