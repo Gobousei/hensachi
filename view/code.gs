@@ -1,4 +1,3 @@
-
 function doGet(e) {
 const htmlOutput = HtmlService.createTemplateFromFile("index").evaluate();
   htmlOutput
@@ -8,7 +7,7 @@ const htmlOutput = HtmlService.createTemplateFromFile("index").evaluate();
 }
 
 function deletefunc(){
-  var ss_id2 = '1YPWfD2YIzfNzJ4Om8ZLewmeel_LkHZBhFuciEcxOXZQ';
+  var ss_id2 = '1jqkhIYkAq18_uqZKkZw0DcuislNF3TZHmJz90BV7zZ0';
 var sh_name2 = 'シート1'; //スプレッドシートのシート名を指定
 var sh2 = SpreadsheetApp.openById(ss_id2).getSheetByName(sh_name2);
 var delete1 = sh2.deleteRow(2)
