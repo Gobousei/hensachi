@@ -22,13 +22,14 @@ content: "";
 margin: 10px 0;
 }
     </style>
+    <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
   </head>
   <body>
     <h1> </h1><br>
       <div class="centering_parent">
     <span class="centering_item">
     <h1><?
-    var ss_id = '1YPWfD2YIzfNzJ4Om8ZLewmeel_LkHZBhFuciEcxOXZQ';
+    var ss_id = '1jqkhIYkAq18_uqZKkZw0DcuislNF3TZHmJz90BV7zZ0';
         var sh_name = 'シート1'; //スプレッドシートのシート名を指定
         var sh = SpreadsheetApp.openById(ss_id).getSheetByName(sh_name);
     var myRange = sh.getRange("A2");
@@ -44,12 +45,14 @@ var day = day_arr[now.getDay()];
 var time = year + '年' + month + '月' + date + '日' + '（' + day + '）';
           output.append("課題終了！今日の学習教科は：" + day);
   }else{
-        var day = sh.getRange("B2");
+        var day = sh.getRange("C2");
         var dayvalue = day.getDisplayValue();
         var name = sh.getRange("A2");
         var namevalue = name.getValue();
-          output.append(namevalue +"　提出日："+ dayvalue);
-          output.append('<br><button type="button" id="rightButton" class="c-button" onclick="deletebutton()">できた</button>');
+        var subject = sh.getRange("B2");
+        var subjectvalue = subject.getValue();
+          output.append(subjectvalue +"："+ namevalue +"　提出日："+ dayvalue);
+          output.append('</div><br><button type="button" class="button-49" role="button" onclick="deletebutton()">できた</button>');
   }
       ?></h1>
       </span>
